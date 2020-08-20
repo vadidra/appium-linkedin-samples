@@ -9,7 +9,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Ch_04_06_Page_Source {
+public class Ch_04_04_Waiting_For_Elements_a_9 {
+
     private static final String APP = "https://github.com/cloudgrey-io/the-app/releases/download/v1.9.0/TheApp-v1.9.0.apk";
     private static final String APPIUM = "http://localhost:4723/wd/hub";
 
@@ -40,7 +41,21 @@ public class Ch_04_06_Page_Source {
         WebElement screen = wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("Login Screen")));
         screen.click();
 
-        try { Thread.sleep(1000); } catch (Exception ign) {}
-        System.out.println(driver.getPageSource());
+        WebElement username = wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("username")));
+        username.sendKeys("alice");
+
+        WebElement password = driver.findElement(MobileBy.AccessibilityId("password"));
+        password.sendKeys("mypassword");
+
+        WebElement login  = driver.findElement(MobileBy.AccessibilityId("loginBtn"));
+        login.click();
+
+        WebElement loginTextn = wait.until(ExpectedConditions.presenceOfElementLocated(
+                MobileBy.xpath("//android.widget.TextView[contains(@text, 'You are logged in')]")));
+
+        assert(loginTextn.getText().contains("alice"));
+
+
+
     }
 }

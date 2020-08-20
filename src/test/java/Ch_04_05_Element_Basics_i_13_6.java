@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Ch_04_05_Element_Basics {
+public class Ch_04_05_Element_Basics_i_13_6 {
 
 //    private static final String APP = "https://github.com/cloudgrey-io/the-app/releases/download/v1.9.0/TheApp-v1.9.0.apk";
     private static final String APP = "https://github.com/cloudgrey-io/the-app/releases/download/v1.9.0/TheApp-v1.9.0.app.zip";
@@ -22,7 +22,7 @@ public class Ch_04_05_Element_Basics {
     public void setUp() throws Exception {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "iOS");
-        caps.setCapability("platformVersion", "11.4");
+        caps.setCapability("platformVersion", "13.6");
         caps.setCapability("deviceName", "iPhone 8");
         caps.setCapability("automationName", "XCUITest");
         caps.setCapability("app", APP);
